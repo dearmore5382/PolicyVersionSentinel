@@ -1,0 +1,16 @@
+POLICY_START
+POLICY_VERSION=REFUND-CONFLICT-2026-01
+EFFECTIVE_DATE=2026-01-01
+
+CLAUSE_ID=CONFLICT-1
+A refund request submitted within 14 calendar days is eligible when the digital service has not been substantially consumed.
+
+CLAUSE_ID=CONFLICT-2
+Every refund request submitted within 14 calendar days is eligible regardless of consumption.
+
+CLAUSE_ID=CONFLICT-3
+A substantially consumed digital service is ineligible for a refund, including requests submitted within 14 calendar days.
+
+CLAUSE_ID=CONFLICT-4
+When applicable clauses produce opposing outcomes, the request requires manual review and must be classified as ambiguous.
+POLICY_END
