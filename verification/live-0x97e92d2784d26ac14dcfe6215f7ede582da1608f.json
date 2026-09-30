@@ -1,0 +1,381 @@
+{
+  "network": "studionet",
+  "contract": "0x97E92D2784d26ac14dCFE6215F7Ede582DA1608F",
+  "source_sha256": "cff9beaecbe07a57eb9dedf533c41a8111fe5262b1c9a20fe1f252f56e8f9d40",
+  "source_parity": true,
+  "policy_url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v1.txt",
+  "policy_digest": "484cf05dafedd618e83329a9080b74ed028e30819f3b2560d7bac3dc8736a394",
+  "roles": {
+    "claimant": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+    "acknowledger": "0xA63DE24e30C88FB1019E8956654730316e36eDBE"
+  },
+  "steps": [
+    {
+      "id": "H1-register-snapshot",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "register_snapshot",
+      "return": "3",
+      "expected": "3",
+      "tx_hash": "0xfce602fe16d90bab25546553421618cde239daffb501dcdbeb80fc8b9cf5edff",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xfce602fe16d90bab25546553421618cde239daffb501dcdbeb80fc8b9cf5edff",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "state_unchanged": null,
+      "readback": null
+    },
+    {
+      "id": "F1-same-wallet",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "file_claim",
+      "return": "INDEPENDENT_ACKNOWLEDGER_REQUIRED",
+      "expected": "INDEPENDENT_ACKNOWLEDGER_REQUIRED",
+      "tx_hash": "0x0f3f81d6d77a05d7109ff18e7e0ae2180c3b22fafffbc4a9148f539177d63221",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x0f3f81d6d77a05d7109ff18e7e0ae2180c3b22fafffbc4a9148f539177d63221",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "state_unchanged": null,
+      "readback": null
+    },
+    {
+      "id": "H2-file-claim",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "file_claim",
+      "return": "0",
+      "expected": "0",
+      "tx_hash": "0xd1f63117938354a9dc7d11d42204ed3154cf92369327903b4bc281f2756bb69c",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xd1f63117938354a9dc7d11d42204ed3154cf92369327903b4bc281f2756bb69c",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "state_unchanged": null,
+      "readback": null
+    },
+    {
+      "id": "F2-premature-ack",
+      "actor": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+      "method": "acknowledge",
+      "return": "ACKNOWLEDGEMENT_NOT_ALLOWED",
+      "expected": "ACKNOWLEDGEMENT_NOT_ALLOWED",
+      "tx_hash": "0x2608dedb21302e8a42b62b2c18ff49885f4a1fb9524d2435d3154b88229eafa1",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x2608dedb21302e8a42b62b2c18ff49885f4a1fb9524d2435d3154b88229eafa1",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "state_unchanged": true,
+      "readback": {
+        "acknowledger": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+        "cited_clause_ids": [],
+        "claim": {
+          "claim_ref": "PVS-LIVE-001",
+          "event": "Service purchased but not consumed",
+          "facts": [
+            "Request filed 5 days after purchase",
+            "No service usage recorded"
+          ],
+          "purchase_date": "2026-09-20",
+          "request_date": "2026-09-25",
+          "requested_remedy": "Full refund",
+          "schema": "refund-claim-v1"
+        },
+        "claim_digest": "16b93fed5c47d641a789c7f1413a9a3f5bd3a75343072bd738c1ae817d7cc44a",
+        "claim_id": 0,
+        "claimant": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+        "outcome": "PENDING",
+        "policy_digest": "484cf05dafedd618e83329a9080b74ed028e30819f3b2560d7bac3dc8736a394",
+        "policy_url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v1.txt",
+        "policy_version": "REFUND-2026-01",
+        "reason_codes": [],
+        "snapshot_id": 3,
+        "state": "CLAIM_FILED"
+      }
+    },
+    {
+      "id": "H3-adjudicate",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "adjudicate_claim",
+      "return": "ELIGIBLE",
+      "expected": "ELIGIBLE",
+      "tx_hash": "0xd19b9df9ffc8a0f12b695a9807975b43ca28532ccb0a48f79f4f06510c50da3b",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xd19b9df9ffc8a0f12b695a9807975b43ca28532ccb0a48f79f4f06510c50da3b",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "state_unchanged": null,
+      "readback": {
+        "acknowledger": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+        "cited_clause_ids": [
+          "REFUND-1"
+        ],
+        "claim": {
+          "claim_ref": "PVS-LIVE-001",
+          "event": "Service purchased but not consumed",
+          "facts": [
+            "Request filed 5 days after purchase",
+            "No service usage recorded"
+          ],
+          "purchase_date": "2026-09-20",
+          "request_date": "2026-09-25",
+          "requested_remedy": "Full refund",
+          "schema": "refund-claim-v1"
+        },
+        "claim_digest": "16b93fed5c47d641a789c7f1413a9a3f5bd3a75343072bd738c1ae817d7cc44a",
+        "claim_id": 0,
+        "claimant": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+        "outcome": "ELIGIBLE",
+        "policy_digest": "484cf05dafedd618e83329a9080b74ed028e30819f3b2560d7bac3dc8736a394",
+        "policy_url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v1.txt",
+        "policy_version": "REFUND-2026-01",
+        "reason_codes": [
+          "COVERED_EVENT",
+          "WITHIN_WINDOW"
+        ],
+        "snapshot_id": 3,
+        "state": "REVIEW_ELIGIBLE"
+      }
+    },
+    {
+      "id": "F3-replay-adjudication",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "adjudicate_claim",
+      "return": "CLAIM_NOT_ADJUDICABLE",
+      "expected": "CLAIM_NOT_ADJUDICABLE",
+      "tx_hash": "0xe92239adac1b283e8af6a65f1372db379cf3a925b889b8cf4a77822d8ea57b6c",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xe92239adac1b283e8af6a65f1372db379cf3a925b889b8cf4a77822d8ea57b6c",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "state_unchanged": true,
+      "readback": {
+        "acknowledger": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+        "cited_clause_ids": [
+          "REFUND-1"
+        ],
+        "claim": {
+          "claim_ref": "PVS-LIVE-001",
+          "event": "Service purchased but not consumed",
+          "facts": [
+            "Request filed 5 days after purchase",
+            "No service usage recorded"
+          ],
+          "purchase_date": "2026-09-20",
+          "request_date": "2026-09-25",
+          "requested_remedy": "Full refund",
+          "schema": "refund-claim-v1"
+        },
+        "claim_digest": "16b93fed5c47d641a789c7f1413a9a3f5bd3a75343072bd738c1ae817d7cc44a",
+        "claim_id": 0,
+        "claimant": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+        "outcome": "ELIGIBLE",
+        "policy_digest": "484cf05dafedd618e83329a9080b74ed028e30819f3b2560d7bac3dc8736a394",
+        "policy_url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v1.txt",
+        "policy_version": "REFUND-2026-01",
+        "reason_codes": [
+          "COVERED_EVENT",
+          "WITHIN_WINDOW"
+        ],
+        "snapshot_id": 3,
+        "state": "REVIEW_ELIGIBLE"
+      }
+    },
+    {
+      "id": "F4-wrong-caller",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "acknowledge",
+      "return": "ACKNOWLEDGER_ONLY",
+      "expected": "ACKNOWLEDGER_ONLY",
+      "tx_hash": "0xe0d520807c0d87c06c9b1b288e998596a2e75a807718056ec13f3c87f21600dd",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xe0d520807c0d87c06c9b1b288e998596a2e75a807718056ec13f3c87f21600dd",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "state_unchanged": true,
+      "readback": {
+        "acknowledger": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+        "cited_clause_ids": [
+          "REFUND-1"
+        ],
+        "claim": {
+          "claim_ref": "PVS-LIVE-001",
+          "event": "Service purchased but not consumed",
+          "facts": [
+            "Request filed 5 days after purchase",
+            "No service usage recorded"
+          ],
+          "purchase_date": "2026-09-20",
+          "request_date": "2026-09-25",
+          "requested_remedy": "Full refund",
+          "schema": "refund-claim-v1"
+        },
+        "claim_digest": "16b93fed5c47d641a789c7f1413a9a3f5bd3a75343072bd738c1ae817d7cc44a",
+        "claim_id": 0,
+        "claimant": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+        "outcome": "ELIGIBLE",
+        "policy_digest": "484cf05dafedd618e83329a9080b74ed028e30819f3b2560d7bac3dc8736a394",
+        "policy_url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v1.txt",
+        "policy_version": "REFUND-2026-01",
+        "reason_codes": [
+          "COVERED_EVENT",
+          "WITHIN_WINDOW"
+        ],
+        "snapshot_id": 3,
+        "state": "REVIEW_ELIGIBLE"
+      }
+    },
+    {
+      "id": "F5-tampered-commitment",
+      "actor": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+      "method": "acknowledge",
+      "return": "COMMITMENT_MISMATCH",
+      "expected": "COMMITMENT_MISMATCH",
+      "tx_hash": "0xf64b34f660ca103bf8526428bcae591b1141a7a1b664806b514fe67e26baaa4f",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xf64b34f660ca103bf8526428bcae591b1141a7a1b664806b514fe67e26baaa4f",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "state_unchanged": true,
+      "readback": {
+        "acknowledger": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+        "cited_clause_ids": [
+          "REFUND-1"
+        ],
+        "claim": {
+          "claim_ref": "PVS-LIVE-001",
+          "event": "Service purchased but not consumed",
+          "facts": [
+            "Request filed 5 days after purchase",
+            "No service usage recorded"
+          ],
+          "purchase_date": "2026-09-20",
+          "request_date": "2026-09-25",
+          "requested_remedy": "Full refund",
+          "schema": "refund-claim-v1"
+        },
+        "claim_digest": "16b93fed5c47d641a789c7f1413a9a3f5bd3a75343072bd738c1ae817d7cc44a",
+        "claim_id": 0,
+        "claimant": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+        "outcome": "ELIGIBLE",
+        "policy_digest": "484cf05dafedd618e83329a9080b74ed028e30819f3b2560d7bac3dc8736a394",
+        "policy_url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v1.txt",
+        "policy_version": "REFUND-2026-01",
+        "reason_codes": [
+          "COVERED_EVENT",
+          "WITHIN_WINDOW"
+        ],
+        "snapshot_id": 3,
+        "state": "REVIEW_ELIGIBLE"
+      }
+    },
+    {
+      "id": "H4-acknowledge",
+      "actor": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+      "method": "acknowledge",
+      "return": "ACKNOWLEDGED_ELIGIBLE",
+      "expected": "ACKNOWLEDGED_ELIGIBLE",
+      "tx_hash": "0xd7fcf51edf4bbea7c1148987cc1fe51b8be936d4d3a222cc011b3ddc72d66b98",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xd7fcf51edf4bbea7c1148987cc1fe51b8be936d4d3a222cc011b3ddc72d66b98",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "state_unchanged": null,
+      "readback": {
+        "acknowledger": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+        "cited_clause_ids": [
+          "REFUND-1"
+        ],
+        "claim": {
+          "claim_ref": "PVS-LIVE-001",
+          "event": "Service purchased but not consumed",
+          "facts": [
+            "Request filed 5 days after purchase",
+            "No service usage recorded"
+          ],
+          "purchase_date": "2026-09-20",
+          "request_date": "2026-09-25",
+          "requested_remedy": "Full refund",
+          "schema": "refund-claim-v1"
+        },
+        "claim_digest": "16b93fed5c47d641a789c7f1413a9a3f5bd3a75343072bd738c1ae817d7cc44a",
+        "claim_id": 0,
+        "claimant": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+        "outcome": "ELIGIBLE",
+        "policy_digest": "484cf05dafedd618e83329a9080b74ed028e30819f3b2560d7bac3dc8736a394",
+        "policy_url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v1.txt",
+        "policy_version": "REFUND-2026-01",
+        "reason_codes": [
+          "COVERED_EVENT",
+          "WITHIN_WINDOW"
+        ],
+        "snapshot_id": 3,
+        "state": "ACKNOWLEDGED_ELIGIBLE"
+      }
+    },
+    {
+      "id": "F6-replay-ack",
+      "actor": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+      "method": "acknowledge",
+      "return": "ACKNOWLEDGEMENT_NOT_ALLOWED",
+      "expected": "ACKNOWLEDGEMENT_NOT_ALLOWED",
+      "tx_hash": "0xf20d87708fed06eecc040b4adcd0770f9194ac6c11a9f53dc5d84cf19e6c51cf",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xf20d87708fed06eecc040b4adcd0770f9194ac6c11a9f53dc5d84cf19e6c51cf",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "state_unchanged": true,
+      "readback": {
+        "acknowledger": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+        "cited_clause_ids": [
+          "REFUND-1"
+        ],
+        "claim": {
+          "claim_ref": "PVS-LIVE-001",
+          "event": "Service purchased but not consumed",
+          "facts": [
+            "Request filed 5 days after purchase",
+            "No service usage recorded"
+          ],
+          "purchase_date": "2026-09-20",
+          "request_date": "2026-09-25",
+          "requested_remedy": "Full refund",
+          "schema": "refund-claim-v1"
+        },
+        "claim_digest": "16b93fed5c47d641a789c7f1413a9a3f5bd3a75343072bd738c1ae817d7cc44a",
+        "claim_id": 0,
+        "claimant": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+        "outcome": "ELIGIBLE",
+        "policy_digest": "484cf05dafedd618e83329a9080b74ed028e30819f3b2560d7bac3dc8736a394",
+        "policy_url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v1.txt",
+        "policy_version": "REFUND-2026-01",
+        "reason_codes": [
+          "COVERED_EVENT",
+          "WITHIN_WINDOW"
+        ],
+        "snapshot_id": 3,
+        "state": "ACKNOWLEDGED_ELIGIBLE"
+      }
+    }
+  ],
+  "complete": true,
+  "final_claim": {
+    "acknowledger": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+    "cited_clause_ids": [
+      "REFUND-1"
+    ],
+    "claim": {
+      "claim_ref": "PVS-LIVE-001",
+      "event": "Service purchased but not consumed",
+      "facts": [
+        "Request filed 5 days after purchase",
+        "No service usage recorded"
+      ],
+      "purchase_date": "2026-09-20",
+      "request_date": "2026-09-25",
+      "requested_remedy": "Full refund",
+      "schema": "refund-claim-v1"
+    },
+    "claim_digest": "16b93fed5c47d641a789c7f1413a9a3f5bd3a75343072bd738c1ae817d7cc44a",
+    "claim_id": 0,
+    "claimant": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+    "outcome": "ELIGIBLE",
+    "policy_digest": "484cf05dafedd618e83329a9080b74ed028e30819f3b2560d7bac3dc8736a394",
+    "policy_url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v1.txt",
+    "policy_version": "REFUND-2026-01",
+    "reason_codes": [
+      "COVERED_EVENT",
+      "WITHIN_WINDOW"
+    ],
+    "snapshot_id": 3,
+    "state": "ACKNOWLEDGED_ELIGIBLE"
+  }
+}

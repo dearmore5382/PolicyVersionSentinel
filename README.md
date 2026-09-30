@@ -69,9 +69,14 @@ npm install
 npm run build
 ```
 
-## Deployment gate
+## Verified StudioNet deployment
 
-No address is represented as live until the exact source passes manual StudioNet deployment, byte-for-byte source parity, and a finalized two-wallet lifecycle. After deployment, record only the new address and genuine receipts in `verification/`.
+- Contract: [`0x97E92D2784d26ac14dCFE6215F7Ede582DA1608F`](https://explorer-studio.genlayer.com/address/0x97E92D2784d26ac14dCFE6215F7Ede582DA1608F)
+- Source parity: passed byte-for-byte against `contracts/PolicyVersionSentinel.py`
+- Two-wallet lifecycle: `ACKNOWLEDGED_ELIGIBLE`
+- Live receipts and authoritative readbacks: [`verification/live-0x97e92d2784d26ac14dcfe6215f7ede582da1608f.json`](verification/live-0x97e92d2784d26ac14dcfe6215f7ede582da1608f.json)
+
+The evidence journal includes finalized explorer links for snapshot registration, role-separation rejection, claim filing, premature acknowledgement rejection, adjudication, replay rejection, wrong-caller rejection, commitment-tampering rejection, valid acknowledgement, and acknowledgement replay rejection.
 
 ## Limitations
 

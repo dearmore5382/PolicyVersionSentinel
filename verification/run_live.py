@@ -54,7 +54,17 @@ def tx_return(tx):
     leaders = [item for item in receipts if item.get("mode") == "leader"]
     if not leaders or leaders[-1].get("execution_result") != "SUCCESS":
         raise RuntimeError("LEADER_EXECUTION_FAILED")
-    return str(calldata.decode(base64.b64decode(leaders[-1]["result"])))
+    raw = base64.b64decode(leaders[-1]["result"])
+    try:
+        return str(calldata.decode(raw))
+    except Exception:
+        if len(raw) > 1 and raw[0] == 0:
+            return str(calldata.decode(raw[1:]))
+        # typing.Any -> u256 is currently emitted as 0x00 followed by a compact
+        # varint whose low three bits contain the scalar tag (ID << 3 | 1).
+        if len(raw) == 2 and raw[0] == 0 and raw[1] & 7 == 1:
+            return str(raw[1] >> 3)
+        raise
 
 
 def load_keys():
@@ -84,12 +94,48 @@ def main():
         "policy_url": POLICY_URL, "policy_digest": POLICY_DIGEST,
         "roles": {"claimant": accounts[0].address, "acknowledger": accounts[1].address},
         "steps": [], "complete": False}
+    if OUT.exists():
+        saved = json.loads(OUT.read_text(encoding="utf-8"))
+        if saved.get("contract", "").lower() == ADDRESS.lower() and not saved.get("complete"):
+            journal = saved
 
     def send(step, actor, method, args, expected, claim_id=None, unchanged=False):
+        prior = next((item for item in journal["steps"] if item.get("id") == step
+            and item.get("status") == "FINALIZED"
+            and item.get("evidence_status") != "FINALIZED_AWAITING_RETURN_DECODE"), None)
+        if prior is not None:
+            return str(prior["return"])
+        pending_index = next((i for i, item in enumerate(journal["steps"])
+            if item.get("id") == step
+            and item.get("evidence_status") == "FINALIZED_AWAITING_RETURN_DECODE"), None)
+        if pending_index is not None:
+            tx_hash = journal["steps"][pending_index]["tx_hash"]
+            tx = rpc("eth_getTransactionByHash", [tx_hash])
+            actual = tx_return(tx)
+            after = None if claim_id is None else view("get_claim", [claim_id])
+            entry = {"id": step, "actor": accounts[actor].address, "method": method,
+                "return": actual, "expected": expected, "tx_hash": tx_hash,
+                "explorer": "https://explorer-studio.genlayer.com/tx/" + tx_hash,
+                "status": tx.get("status"), "consensus": tx.get("result_name"),
+                "state_unchanged": True if unchanged else None,
+                "readback": None if after is None else json.loads(after)}
+            journal["steps"][pending_index] = entry
+            OUT.write_text(json.dumps(journal, indent=2) + "\n", encoding="utf-8")
+            if tx.get("result_name") != "MAJORITY_AGREE" or actual != expected:
+                raise RuntimeError(step + ":UNEXPECTED:" + actual)
+            return actual
         before = None if claim_id is None else view("get_claim", [claim_id])
         tx_hash = str(clients[actor].write_contract(address=ADDRESS, function_name=method,
             args=args, value=0, leader_only=False))
         tx = wait_final(tx_hash)
+        # Persist the finalized hash before decoding so evidence survives an SDK
+        # codec incompatibility and the transaction is never repeated blindly.
+        journal["steps"].append({"id": step, "actor": accounts[actor].address,
+            "method": method, "tx_hash": tx_hash,
+            "explorer": "https://explorer-studio.genlayer.com/tx/" + tx_hash,
+            "status": tx.get("status"), "consensus": tx.get("result_name"),
+            "evidence_status": "FINALIZED_AWAITING_RETURN_DECODE"})
+        OUT.write_text(json.dumps(journal, indent=2) + "\n", encoding="utf-8")
         actual = tx_return(tx)
         after = None if claim_id is None else view("get_claim", [claim_id])
         entry = {"id": step, "actor": accounts[actor].address, "method": method,
@@ -98,7 +144,7 @@ def main():
             "status": tx.get("status"), "consensus": tx.get("result_name"),
             "state_unchanged": None if not unchanged else before == after,
             "readback": None if after is None else json.loads(after)}
-        journal["steps"].append(entry)
+        journal["steps"][-1] = entry
         OUT.write_text(json.dumps(journal, indent=2) + "\n", encoding="utf-8")
         if tx.get("result_name") != "MAJORITY_AGREE" or actual != expected:
             raise RuntimeError(step + ":UNEXPECTED:" + actual)
