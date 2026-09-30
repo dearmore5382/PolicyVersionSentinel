@@ -1,0 +1,1 @@
+{"schema":"refund-claim-v1","claim_ref":"PVS-DEMO-002","purchase_date":"2026-07-01","request_date":"2026-09-25","event":"Change of mind","requested_remedy":"Full refund","facts":["Request filed more than 14 days after purchase","No express exception asserted"]}

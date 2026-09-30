@@ -1,0 +1,18 @@
+{
+  "network": "StudioNet",
+  "contract_address": "0x97E92D2784d26ac14dCFE6215F7Ede582DA1608F",
+  "status": "DEPLOYED_SOURCE_VERIFIED_AWAITING_PUBLIC_POLICY_SOURCE",
+  "expected_contract": {
+    "name": "PolicyVersionSentinel",
+    "version": 1,
+    "schema": "version-bound-refund-review-v1",
+    "claim_boundary": "ONE_CLAIM_VS_ONE_POLICY_SNAPSHOT"
+  },
+  "live_evidence": false,
+  "source_parity_verified": true,
+  "source_gate": {
+    "status": "BLOCKED",
+    "reason": "PUBLIC_POLICY_SOURCE_NOT_READY",
+    "url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v1.txt"
+  }
+}

@@ -1,0 +1,16 @@
+POLICY_START
+POLICY_VERSION=REFUND-2026-01
+EFFECTIVE_DATE=2026-01-01
+
+CLAUSE_ID=REFUND-1
+A customer may request a refund within 14 calendar days of purchase when the digital service has not been substantially consumed.
+
+CLAUSE_ID=REFUND-2
+A verified duplicate charge is eligible for a refund regardless of consumption, if reported within 60 calendar days.
+
+CLAUSE_ID=REFUND-3
+Requests submitted after the applicable window are ineligible unless a separate clause expressly provides an exception.
+
+CLAUSE_ID=REFUND-4
+When submitted facts do not establish timing, consumption, or the asserted billing event, the request requires manual review.
+POLICY_END

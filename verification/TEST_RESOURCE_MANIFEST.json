@@ -1,0 +1,14 @@
+{
+  "live_source": {
+    "url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v1.txt",
+    "classification": "PUBLIC_LIVE_SOURCE",
+    "purpose": "Version-bound runtime policy adjudication after the repository is published",
+    "authority_note": "Project-published demonstration policy; not represented as law or a merchant's external policy"
+  },
+  "fixtures": [
+    {"path": "samples/claim-eligible.json", "classification": "SYNTHETIC_FIXTURE", "expected": "ELIGIBLE"},
+    {"path": "samples/claim-ineligible.json", "classification": "SYNTHETIC_FIXTURE", "expected": "INELIGIBLE"},
+    {"path": "samples/claim-ambiguous.json", "classification": "SYNTHETIC_FIXTURE", "expected": "AMBIGUOUS"}
+  ],
+  "prohibition": "Synthetic fixtures must never be presented as live on-chain evidence."
+}

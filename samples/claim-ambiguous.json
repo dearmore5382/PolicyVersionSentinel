@@ -1,0 +1,1 @@
+{"schema":"refund-claim-v1","claim_ref":"PVS-DEMO-003","purchase_date":"unknown","request_date":"2026-09-25","event":"Possible duplicate charge","requested_remedy":"Refund one charge","facts":["Two similar ledger descriptions supplied","Original transaction dates were not supplied"]}

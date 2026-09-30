@@ -1,0 +1,1 @@
+{"schema":"refund-claim-v1","claim_ref":"PVS-DEMO-001","purchase_date":"2026-09-20","request_date":"2026-09-25","event":"Service purchased but not consumed","requested_remedy":"Full refund","facts":["Request filed 5 days after purchase","No service usage recorded"]}
