@@ -78,6 +78,7 @@ npm run build
 - Live receipts and authoritative readbacks: [`verification/live-0x97e92d2784d26ac14dcfe6215f7ede582da1608f.json`](verification/live-0x97e92d2784d26ac14dcfe6215f7ede582da1608f.json)
 - Full outcome and adversarial audit: [`verification/full-audit-0x97e92d2784d26ac14dcfe6215f7ede582da1608f.json`](verification/full-audit-0x97e92d2784d26ac14dcfe6215f7ede582da1608f.json)
 - Browser/on-chain parity manifest: [`verification/UI_STATE_PARITY.json`](verification/UI_STATE_PARITY.json)
+- Human-readable E2E report: [`verification/E2E_EVIDENCE.md`](verification/E2E_EVIDENCE.md)
 
 The evidence journal includes finalized explorer links for snapshot registration, role-separation rejection, claim filing, premature acknowledgement rejection, adjudication, replay rejection, wrong-caller rejection, commitment-tampering rejection, valid acknowledgement, and acknowledgement replay rejection.
 
