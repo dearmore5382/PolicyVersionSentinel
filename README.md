@@ -75,8 +75,12 @@ npm run build
 - Source parity: passed byte-for-byte against `contracts/PolicyVersionSentinel.py`
 - Two-wallet lifecycle: `ACKNOWLEDGED_ELIGIBLE`
 - Live receipts and authoritative readbacks: [`verification/live-0x97e92d2784d26ac14dcfe6215f7ede582da1608f.json`](verification/live-0x97e92d2784d26ac14dcfe6215f7ede582da1608f.json)
+- Full outcome and adversarial audit: [`verification/full-audit-0x97e92d2784d26ac14dcfe6215f7ede582da1608f.json`](verification/full-audit-0x97e92d2784d26ac14dcfe6215f7ede582da1608f.json)
+- Browser/on-chain parity manifest: [`verification/UI_STATE_PARITY.json`](verification/UI_STATE_PARITY.json)
 
 The evidence journal includes finalized explorer links for snapshot registration, role-separation rejection, claim filing, premature acknowledgement rejection, adjudication, replay rejection, wrong-caller rejection, commitment-tampering rejection, valid acknowledgement, and acknowledgement replay rejection.
+
+The extended audit additionally proves live `INELIGIBLE` and `AMBIGUOUS` terminal states, malformed input rejection, missing identifier rejection, fail-closed validator conflict, and rejection of policy digest, version, and boundary-marker attacks. The production UI was rendered against claims `0` through `3`; screenshots and the parity manifest show exact agreement with authoritative `get_claim` readback. The UI also checks consensus and execution results before claiming a successful transition.
 
 ## Limitations
 

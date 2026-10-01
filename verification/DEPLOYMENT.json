@@ -1,7 +1,7 @@
 {
   "network": "StudioNet",
   "contract_address": "0x97E92D2784d26ac14dCFE6215F7Ede582DA1608F",
-  "status": "E2E_VERIFIED",
+  "status": "FULL_E2E_AND_ADVERSARIAL_AUDIT_VERIFIED",
   "expected_contract": {
     "name": "PolicyVersionSentinel",
     "version": 1,
@@ -17,5 +17,10 @@
   "verified_snapshot_id": 3,
   "verified_claim_id": 0,
   "final_state": "ACKNOWLEDGED_ELIGIBLE",
-  "evidence_file": "verification/live-0x97e92d2784d26ac14dcfe6215f7ede582da1608f.json"
+  "evidence_file": "verification/live-0x97e92d2784d26ac14dcfe6215f7ede582da1608f.json",
+  "full_audit_file": "verification/full-audit-0x97e92d2784d26ac14dcfe6215f7ede582da1608f.json",
+  "ui_state_parity_file": "verification/UI_STATE_PARITY.json",
+  "verified_outcomes": ["ELIGIBLE", "INELIGIBLE", "AMBIGUOUS"],
+  "conflict_behavior": "MAJORITY_DISAGREE_FAIL_CLOSED",
+  "source_attacks_rejected": ["POLICY_DIGEST_MISMATCH", "POLICY_VERSION_MISMATCH", "POLICY_MARKERS_MISSING"]
 }

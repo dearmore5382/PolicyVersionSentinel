@@ -1,0 +1,11 @@
+{
+  "method": "Production Vite build rendered in isolated headless Chrome; each ?claim=<id> route loaded get_claim(id) from StudioNet without a wallet.",
+  "contract": "0x97E92D2784d26ac14dCFE6215F7Ede582DA1608F",
+  "checks": [
+    {"claim_id": 0, "screenshot": "verification/ui-claim-0.png", "ui_state": "ACKNOWLEDGED_ELIGIBLE", "ui_outcome": "ELIGIBLE", "onchain_state": "ACKNOWLEDGED_ELIGIBLE", "match": true},
+    {"claim_id": 1, "screenshot": "verification/ui-claim-1.png", "ui_state": "ACKNOWLEDGED_INELIGIBLE", "ui_outcome": "INELIGIBLE", "onchain_state": "ACKNOWLEDGED_INELIGIBLE", "adjudication_tx": "0x861b151fb6389ce1d54880f76437e4fcd55b142bd7fc55d574707985947a599a", "acknowledgement_tx": "0x320c57bc77f45264e488abedce586171443e6d5cc6a3d95764c9a9a46468c79e", "match": true},
+    {"claim_id": 2, "screenshot": "verification/ui-claim-2.png", "ui_state": "CLAIM_FILED", "ui_outcome": "PENDING", "onchain_state": "CLAIM_FILED", "conflict_tx": "0x34a117daef0aa670c741bf0d5a4d79b30ca4ec920699dcbe563756a0cd4f77a4", "consensus": "MAJORITY_DISAGREE", "fail_closed": true, "match": true},
+    {"claim_id": 3, "screenshot": "verification/ui-claim-3.png", "ui_state": "ACKNOWLEDGED_AMBIGUOUS", "ui_outcome": "AMBIGUOUS", "onchain_state": "ACKNOWLEDGED_AMBIGUOUS", "adjudication_tx": "0xa87602291bc3b54d838c7d55bfc465de31456546437e868009b1d300290e23d4", "acknowledgement_tx": "0x426efc1057dbd4721ecb775d15ae43cd742f8382096d422691bc0789a31d74f3", "match": true}
+  ],
+  "all_match": true
+}
