@@ -71,6 +71,7 @@ npm run build
 
 ## Verified StudioNet deployment
 
+- Website: [policyversionsentinel.pages.dev](https://policyversionsentinel.pages.dev/)
 - Contract: [`0x97E92D2784d26ac14dCFE6215F7Ede582DA1608F`](https://explorer-studio.genlayer.com/address/0x97E92D2784d26ac14dCFE6215F7Ede582DA1608F)
 - Source parity: passed byte-for-byte against `contracts/PolicyVersionSentinel.py`
 - Two-wallet lifecycle: `ACKNOWLEDGED_ELIGIBLE`

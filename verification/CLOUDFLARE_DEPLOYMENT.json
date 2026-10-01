@@ -1,0 +1,10 @@
+{
+  "provider": "Cloudflare Pages",
+  "project": "policyversionsentinel",
+  "production_branch": "main",
+  "source_commit": "669c026d825d8abe72ba16690fd882579941ef30",
+  "production_url": "https://policyversionsentinel.pages.dev/",
+  "deployment_url": "https://a97ed77c.policyversionsentinel.pages.dev/",
+  "production_http_status": 200,
+  "deployed_directory": "dist"
+}
