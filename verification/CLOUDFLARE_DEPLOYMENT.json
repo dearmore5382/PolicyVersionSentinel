@@ -2,9 +2,14 @@
   "provider": "Cloudflare Pages",
   "project": "policyversionsentinel",
   "production_branch": "main",
-  "source_commit": "669c026d825d8abe72ba16690fd882579941ef30",
+  "source_commit": "8978142a82b86ca8abeca078d5b053b5c3c96723",
   "production_url": "https://policyversionsentinel.pages.dev/",
-  "deployment_url": "https://a97ed77c.policyversionsentinel.pages.dev/",
+  "deployment_url": "https://1c582341.policyversionsentinel.pages.dev/",
   "production_http_status": 200,
-  "deployed_directory": "dist"
+  "deployment_http_status": 200,
+  "bundle_contains_v3_address": true,
+  "bundle_contains_v3_schema_copy": true,
+  "contract_address": "0x314BcBB694e3C9e6D2A97F2f4Ee3616e8bDf54c1",
+  "deployed_directory": "dist",
+  "limitation": "Static production parity is verified; a fresh injected-wallet browser write was not performed in this deployment session."
 }

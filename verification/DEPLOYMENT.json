@@ -12,5 +12,7 @@
   "happy_evidence": "verification/v3-live-0x314bcbb694e3c9e6d2a97f2f4ee3616e8bdf54c1.json",
   "usage_veto_evidence": "verification/v3-ineligible-0x314bcbb694e3c9e6d2a97f2f4ee3616e8bdf54c1.json",
   "status": "SOURCE_PARITY_HAPPY_PATH_AND_DETERMINISTIC_VETO_VERIFIED",
-  "limitations": ["browser-wallet production parity not rerun after v3 address update", "post-deadline recovery cannot be exercised before the signed deadline", "no claim of merchant legal identity or domain ownership"]
+  "production_url": "https://policyversionsentinel.pages.dev/",
+  "deployment_url": "https://1c582341.policyversionsentinel.pages.dev/",
+  "limitations": ["fresh injected-wallet browser write not rerun after v3 address update", "post-deadline recovery cannot be exercised before the signed deadline", "no claim of merchant legal identity or domain ownership"]
 }

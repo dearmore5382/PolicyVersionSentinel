@@ -30,4 +30,4 @@ The merchant records one usage unit. Validators still return `COVERED`, but dete
 - Orders 2 and 3 are successful usage-veto executions whose buyer-request polling encountered HTTP 502. Their readbacks prove the request finalized, but the clients did not persist that request hash; they are preserved as interrupted evidence and are not the canonical complete case.
 - Order 4 is the canonical complete usage-veto case after the runner was corrected to journal hashes immediately after submission.
 - Post-deadline recovery remains unexercised because the deadline has not elapsed. Early recovery rejection is live; direct contract tests cover the terminal rule locally.
-- Browser-wallet production parity must be rerun after deploying the updated frontend.
+- Production and immutable deployment URLs both return HTTP 200 and their bundles contain the exact v3 address/schema copy. A fresh injected-wallet browser write was not performed in this deployment session and is not claimed.
