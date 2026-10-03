@@ -43,6 +43,6 @@ npm ci
 npm run build
 ```
 
-Current local result: 9 direct GenVM tests pass; production frontend build passes. A fresh v3 deployment is required. Never submit the superseded v2 address `0x5Ea83Be7737a63B57543d00CD2bFB92De4Ef2f96` as v3.
+Current result: 9 direct GenVM tests pass, GenVM lint passes, production frontend build passes, and v3 is source-verified at [`0x314BcBB694e3C9e6D2A97F2f4Ee3616e8bDf54c1`](https://explorer-studio.genlayer.com/address/0x314BcBB694e3C9e6D2A97F2f4Ee3616e8bDf54c1). Happy refund and deterministic usage-veto lifecycles are finalized with native transfers. Never submit the superseded v2 address `0x5Ea83Be7737a63B57543d00CD2bFB92De4Ef2f96` as v3.
 
-See [`verification/E2E_V3.md`](verification/E2E_V3.md), [`verification/TEST_RESOURCE_MANIFEST.json`](verification/TEST_RESOURCE_MANIFEST.json), and [`verification/REMEDIATION.md`](verification/REMEDIATION.md).
+See [`verification/EVIDENCE_PACKET.md`](verification/EVIDENCE_PACKET.md), [`verification/E2E_V3.md`](verification/E2E_V3.md), [`verification/TEST_RESOURCE_MANIFEST.json`](verification/TEST_RESOURCE_MANIFEST.json), and [`verification/REMEDIATION.md`](verification/REMEDIATION.md).

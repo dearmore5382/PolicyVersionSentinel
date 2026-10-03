@@ -17,7 +17,7 @@
       "revision_or_commit": "replace with exact submission commit before live test",
       "expected_content_type": "text/plain UTF-8",
       "expected_digest_algorithm": "SHA-256 over POLICY_START..POLICY_END inclusive",
-      "expected_digest": "compute after final authority address and commit are frozen",
+      "expected_digest": "0e0594441a4514e9867fc7d81608073d23eeb314c44f29dcf9036513566fd8b2",
       "expected_deterministic_facts": ["version REFUND-V3", "authority equals policy signer", "digest matches fetched bytes"],
       "expected_contract_result": "COVERED + zero usage + timely request derives ELIGIBLE",
       "mutable_or_immutable": "must use immutable commit URL for live proof",
@@ -40,5 +40,5 @@
     }
   ],
   "local_fixtures": "Synthetic mocked web/LLM responses; direct behavior tests only, never live evidence",
-  "v3_e2e_status": "PENDING_FRESH_DEPLOYMENT"
+  "v3_e2e_status": "SOURCE_PARITY_HAPPY_REFUND_USAGE_VETO_AND_DIGEST_FAILURE_VERIFIED_ON_STUDIONET"
 }

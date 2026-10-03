@@ -1,26 +1,16 @@
 {
   "network": "StudioNet",
-  "contract_address": "0x97E92D2784d26ac14dCFE6215F7Ede582DA1608F",
-  "status": "FULL_E2E_AND_ADVERSARIAL_AUDIT_VERIFIED",
-  "expected_contract": {
-    "name": "PolicyVersionSentinel",
-    "version": 1,
-    "schema": "version-bound-refund-review-v1",
-    "claim_boundary": "ONE_CLAIM_VS_ONE_POLICY_SNAPSHOT"
-  },
-  "live_evidence": true,
+  "contract_address": "0x314BcBB694e3C9e6D2A97F2f4Ee3616e8bDf54c1",
+  "contract_version": 3,
+  "schema": "counterparty-grounded-refund-escrow-v3",
+  "source_sha256": "2d52099902646aa3fc713f135ba5724ae4e8060d81c73303152a348409b48e39",
   "source_parity_verified": true,
-  "source_gate": {
-    "status": "PASSED",
-    "url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v1.txt"
-  },
-  "verified_snapshot_id": 3,
-  "verified_claim_id": 0,
-  "final_state": "ACKNOWLEDGED_ELIGIBLE",
-  "evidence_file": "verification/live-0x97e92d2784d26ac14dcfe6215f7ede582da1608f.json",
-  "full_audit_file": "verification/full-audit-0x97e92d2784d26ac14dcfe6215f7ede582da1608f.json",
-  "ui_state_parity_file": "verification/UI_STATE_PARITY.json",
-  "verified_outcomes": ["ELIGIBLE", "INELIGIBLE", "AMBIGUOUS"],
-  "conflict_behavior": "MAJORITY_DISAGREE_FAIL_CLOSED",
-  "source_attacks_rejected": ["POLICY_DIGEST_MISMATCH", "POLICY_VERSION_MISMATCH", "POLICY_MARKERS_MISSING"]
+  "policy_commit": "3265c1fb560d56549039952eb1ab66b23348380b",
+  "bounded_policy_sha256": "0e0594441a4514e9867fc7d81608073d23eeb314c44f29dcf9036513566fd8b2",
+  "happy_order": 1,
+  "usage_veto_order": 4,
+  "happy_evidence": "verification/v3-live-0x314bcbb694e3c9e6d2a97f2f4ee3616e8bdf54c1.json",
+  "usage_veto_evidence": "verification/v3-ineligible-0x314bcbb694e3c9e6d2a97f2f4ee3616e8bdf54c1.json",
+  "status": "SOURCE_PARITY_HAPPY_PATH_AND_DETERMINISTIC_VETO_VERIFIED",
+  "limitations": ["browser-wallet production parity not rerun after v3 address update", "post-deadline recovery cannot be exercised before the signed deadline", "no claim of merchant legal identity or domain ownership"]
 }

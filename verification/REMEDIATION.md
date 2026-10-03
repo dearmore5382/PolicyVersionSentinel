@@ -14,4 +14,4 @@ The architecture was changed, not merely reworded.
 
 v3 proves only that a merchant-funded order satisfies that merchant wallet's committed refund terms. It does not prove legal identity, domain ownership, delivery, consumer harm or general policy validity.
 
-Local tests/builds do not close remediation. A new StudioNet deployment and full v3 transaction matrix remain mandatory.
+The exact v3 source is now deployed at `0x314BcBB694e3C9e6D2A97F2f4Ee3616e8bDf54c1`. Fresh StudioNet evidence closes source parity, authority guards, happy refund, deterministic usage veto, digest failure, early-recovery rejection and replay. Remaining limitations are explicitly listed in `E2E_V3.md`; browser production parity and elapsed post-deadline recovery are not claimed yet.

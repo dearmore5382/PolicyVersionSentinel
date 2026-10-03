@@ -8,11 +8,11 @@ import"./styles.css";
 declare global{interface Window{ethereum?:{request:(x:{method:string})=>Promise<string[]>}}}
 type Order={order_id:number;policy_id:number;policy_authority:string;policy_url:string;policy_version:string;policy_digest:string;merchant:string;buyer:string;order_ref:string;product_description:string;purchase_time:string;refund_deadline:string;request_time:string;usage_units:number;refund_amount:string|number;held:string|number;paid_buyer:string|number;paid_merchant:string|number;state:string;source_status:string;semantic_relation:string;cited_clause_id:string;observed_digest:string};
 const EXPLORER="https://explorer-studio.genlayer.com";
-const DEPLOYED_CONTRACT="";
+const DEPLOYED_CONTRACT="0x314BcBB694e3C9e6D2A97F2f4Ee3616e8bDf54c1";
 
 function App(){
  const initialOrder=new URLSearchParams(location.search).get("order")||"0";
- const[account,setAccount]=useState(""),[contract,setContract]=useState(localStorage.getItem("pvs.v3.contract")||DEPLOYED_CONTRACT),[orderId,setOrderId]=useState(initialOrder),[record,setRecord]=useState<Order|null>(null),[busy,setBusy]=useState(""),[message,setMessage]=useState("Paste the newly deployed v3 contract address to begin."),[journal,setJournal]=useState<{label:string;hash:string}[]>([]);
+ const[account,setAccount]=useState(""),[contract,setContract]=useState(localStorage.getItem("pvs.v3.contract")||DEPLOYED_CONTRACT),[orderId,setOrderId]=useState(initialOrder),[record,setRecord]=useState<Order|null>(null),[busy,setBusy]=useState(""),[message,setMessage]=useState("Loading the source-verified v3 contract from StudioNet…"),[journal,setJournal]=useState<{label:string;hash:string}[]>([]);
  const[url,setUrl]=useState(""),[version,setVersion]=useState("REFUND-V3"),[digest,setDigest]=useState(""),[policyId,setPolicyId]=useState("0"),[buyer,setBuyer]=useState(""),[orderRef,setOrderRef]=useState("ORDER-001"),[product,setProduct]=useState("AI source-code review subscription"),[deadline,setDeadline]=useState("2026-12-31T23:59:59Z"),[amount,setAmount]=useState("1"),[units,setUnits]=useState("1");
  const readClient=useMemo(()=>createClient({chain:studionet}),[]),valid=/^0x[0-9a-fA-F]{40}$/.test(contract);
  async function connect(){if(!window.ethereum)return setMessage("No injected wallet found.");try{const a=await window.ethereum.request({method:"eth_requestAccounts"});if(!a[0])throw new Error("No account selected");const c=createClient({chain:studionet,provider:window.ethereum,account:a[0] as`0x${string}`});await c.connect("studionet");setAccount(a[0]);setMessage(`Connected ${a[0]}. The connected wallet signs only its own role transactions.`)}catch(e){setMessage(e instanceof Error?e.message:"Wallet connection cancelled")}}

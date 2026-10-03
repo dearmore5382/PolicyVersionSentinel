@@ -1,0 +1,69 @@
+{
+  "contract": "0x314BcBB694e3C9e6D2A97F2f4Ee3616e8bDf54c1",
+  "steps": [
+    {
+      "id": "I1-fund",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "create_funded_order",
+      "args": [
+        1,
+        "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+        "PVS-V3-USAGE-001",
+        "AI source-code review subscription",
+        "2026-12-31T23:59:59Z",
+        1
+      ],
+      "value": 1,
+      "return": "3",
+      "expected": "3",
+      "tx_hash": "0x6f4709242df3714bf0c1acbbe6cd0d6a0c52710389138263845cbdde39c001d3",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x6f4709242df3714bf0c1acbbe6cd0d6a0c52710389138263845cbdde39c001d3",
+      "status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "consensus": "MAJORITY_AGREE",
+      "readback": null
+    },
+    {
+      "id": "I2-record-usage",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "record_usage",
+      "args": [
+        3,
+        1
+      ],
+      "value": 0,
+      "return": "USAGE_RECORDED",
+      "expected": "USAGE_RECORDED",
+      "tx_hash": "0x372a736ddba5b5fcbb07fa9c0890adbf3ba8d0b64af224008186ea53770859d5",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x372a736ddba5b5fcbb07fa9c0890adbf3ba8d0b64af224008186ea53770859d5",
+      "status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "consensus": "MAJORITY_AGREE",
+      "readback": {
+        "buyer": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+        "cited_clause_id": "NONE",
+        "held": 1,
+        "merchant": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+        "observed_digest": "",
+        "order_id": 3,
+        "order_ref": "PVS-V3-USAGE-001",
+        "paid_buyer": 0,
+        "paid_merchant": 0,
+        "policy_authority": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+        "policy_digest": "0e0594441a4514e9867fc7d81608073d23eeb314c44f29dcf9036513566fd8b2",
+        "policy_id": 1,
+        "policy_url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/3265c1fb560d56549039952eb1ab66b23348380b/samples/refund-policy-v3.txt",
+        "policy_version": "REFUND-V3",
+        "product_description": "AI source-code review subscription",
+        "purchase_time": "2026-10-03T08:25:41Z",
+        "refund_amount": 1,
+        "refund_deadline": "2026-12-31T23:59:59Z",
+        "request_time": "",
+        "semantic_relation": "PENDING",
+        "source_status": "NOT_CHECKED",
+        "state": "FUNDED",
+        "usage_units": 1
+      }
+    }
+  ]
+}
