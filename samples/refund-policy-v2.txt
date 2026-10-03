@@ -1,0 +1,14 @@
+POLICY_START
+POLICY_VERSION=REFUND-V2
+POLICY_AUTHORITY=0x736a168247e3f0c52f7907c9a8fdac572df9c8bb
+EFFECTIVE_DATE=2026-10-01
+
+CLAUSE_ID=WINDOW-14
+A refund request submitted within 14 calendar days of purchase is eligible when the contract-recorded usage is zero.
+
+CLAUSE_ID=USED
+A refund request is ineligible when the merchant has recorded one or more units of service usage.
+
+CLAUSE_ID=OUTSIDE-WINDOW
+A refund request submitted more than 14 calendar days after purchase is ineligible.
+POLICY_END

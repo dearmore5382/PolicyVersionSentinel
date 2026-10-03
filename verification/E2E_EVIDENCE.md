@@ -1,5 +1,7 @@
 # PolicyVersion Sentinel — Live E2E Evidence
 
+> Historical v1 evidence only. The v1 snapshot/claim/acknowledgement contract does not demonstrate the v2 authority-funded escrow protocol. See [`E2E_V2.md`](E2E_V2.md); no v2 live transactions are claimed yet.
+
 This document summarizes reproducible **live StudioNet evidence** for the deployed contract. Synthetic fixtures are not represented as on-chain evidence.
 
 ## Deployment

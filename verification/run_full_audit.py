@@ -1,6 +1,7 @@
-"""Extended live outcome, conflict, source-integrity and adversarial audit."""
+"""Historical v1 extended audit. It does not test the v2 escrow contract."""
 import base64
 import json
+import os
 from pathlib import Path
 
 from genlayer_py import create_account, create_client
@@ -16,6 +17,8 @@ CONFLICT_DIGEST = "860107338a49b846e29d047280d6f880abdd7d329adfdc05ec2320876cdff
 
 
 def main():
+    if os.getenv("PVS_ALLOW_HISTORICAL_V1") != "1":
+        raise RuntimeError("Historical v1 audit is disabled. Set PVS_ALLOW_HISTORICAL_V1=1 only to reproduce v1 evidence; it does not verify v2.")
     keys = core.load_keys()
     accounts = [create_account(account_private_key="0x" + key.removeprefix("0x")) for key in keys]
     clients = [create_client(chain=studionet, account=account) for account in accounts]

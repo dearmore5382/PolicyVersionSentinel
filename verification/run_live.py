@@ -1,7 +1,8 @@
-"""StudioNet source-parity and two-wallet lifecycle runner."""
+"""Historical v1 StudioNet runner. It does not test the v2 escrow contract."""
 import base64
 import hashlib
 import json
+import os
 import time
 from pathlib import Path
 
@@ -80,6 +81,8 @@ def load_keys():
 
 
 def main():
+    if os.getenv("PVS_ALLOW_HISTORICAL_V1") != "1":
+        raise RuntimeError("Historical v1 runner is disabled. Set PVS_ALLOW_HISTORICAL_V1=1 only to reproduce v1 evidence; it does not verify v2.")
     local = (ROOT / "contracts" / "PolicyVersionSentinel.py").read_bytes()
     deployed = base64.b64decode(rpc("gen_getContractCode", [ADDRESS]))
     if deployed != local:

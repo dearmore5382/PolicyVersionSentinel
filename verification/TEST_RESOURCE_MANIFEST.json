@@ -1,14 +1,22 @@
 {
-  "live_source": {
-    "url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v1.txt",
-    "classification": "PUBLIC_LIVE_SOURCE",
-    "purpose": "Version-bound runtime policy adjudication after the repository is published",
-    "authority_note": "Project-published demonstration policy; not represented as law or a merchant's external policy"
+  "contract_version": 2,
+  "live_policy_source": {
+    "path": "samples/refund-policy-v2.txt",
+    "classification": "PUBLIC_POLICY_TEMPLATE_NOT_LIVE_EVIDENCE",
+    "authority": "Replace POLICY_AUTHORITY with the lowercase signer wallet before publishing and hashing",
+    "purpose": "Example source format for a wallet-authorized policy snapshot"
   },
-  "fixtures": [
-    {"path": "samples/claim-eligible.json", "classification": "SYNTHETIC_FIXTURE", "expected": "ELIGIBLE"},
-    {"path": "samples/claim-ineligible.json", "classification": "SYNTHETIC_FIXTURE", "expected": "INELIGIBLE"},
-    {"path": "samples/claim-ambiguous.json", "classification": "SYNTHETIC_FIXTURE", "expected": "AMBIGUOUS"}
-  ],
-  "prohibition": "Synthetic fixtures must never be presented as live on-chain evidence."
+  "local_fixtures": {
+    "path": "tests/test_contract_direct.py",
+    "classification": "SYNTHETIC_LOCAL_MOCKS",
+    "purpose": "Deterministic contract control-flow and adversarial tests only; not on-chain evidence"
+  },
+  "historical_live_evidence": {
+    "path": "verification/E2E_EVIDENCE.md",
+    "contract_version": 1,
+    "contract_address": "0x97E92D2784d26ac14dCFE6215F7Ede582DA1608F",
+    "classification": "HISTORICAL_LIVE_V1_ONLY"
+  },
+  "v2_e2e_status": "PENDING_FRESH_DEPLOYMENT",
+  "prohibition": "Never describe local mocks, templates, screenshots, or v1 transactions as v2 live on-chain evidence."
 }
