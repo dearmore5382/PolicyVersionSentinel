@@ -1,0 +1,154 @@
+{
+  "network": "studionet",
+  "contract": "0x5Ea83Be7737a63B57543d00CD2bFB92De4Ef2f96",
+  "contract_source_sha256": "92c23b0808dc410304e7923d1e6df2798256d175c7b726490a0748046a80e88d",
+  "source_parity": true,
+  "policy_url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v2.txt",
+  "policy_digest": "6b9bc78741878d5d3cecf9c81114d9dce95678f142ed21bd1c1cd4f4545fcae4",
+  "roles": {
+    "merchant": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+    "buyer": "0xA63DE24e30C88FB1019E8956654730316e36eDBE"
+  },
+  "steps": [
+    {
+      "id": "H1-create-policy",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "create_policy",
+      "args": [
+        "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v2.txt",
+        "REFUND-V2",
+        "6b9bc78741878d5d3cecf9c81114d9dce95678f142ed21bd1c1cd4f4545fcae4"
+      ],
+      "value": 0,
+      "return": "0",
+      "expected": "0",
+      "tx_hash": "0x66c5e1334451ff4aa218cefe490d0aa5ef4306b2bf4fd140853c8c6b20967258",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x66c5e1334451ff4aa218cefe490d0aa5ef4306b2bf4fd140853c8c6b20967258",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "state_unchanged": null,
+      "readback": null
+    },
+    {
+      "id": "F1-wrong-authority",
+      "actor": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+      "method": "create_funded_order",
+      "args": [
+        0,
+        "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+        "PVS-V2-FAIL",
+        "DIGITAL-SERVICE",
+        1
+      ],
+      "value": 0,
+      "return": "POLICY_AUTHORITY_ONLY",
+      "expected": "POLICY_AUTHORITY_ONLY",
+      "tx_hash": "0xd998275794768e2b8cc6e485b4d45c6d0ca734037a5940aef0b84ed3084e722b",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xd998275794768e2b8cc6e485b4d45c6d0ca734037a5940aef0b84ed3084e722b",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "state_unchanged": null,
+      "readback": null
+    },
+    {
+      "id": "H2-create-funded-order",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "create_funded_order",
+      "args": [
+        0,
+        "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+        "PVS-V2-LIVE-001",
+        "DIGITAL-SERVICE",
+        1
+      ],
+      "value": 1,
+      "return": "0",
+      "expected": "0",
+      "tx_hash": "0xf504a614b8f1bcce512730dfbc027e4edc87a3f8a964e2dda73a50b56964a1ed",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0xf504a614b8f1bcce512730dfbc027e4edc87a3f8a964e2dda73a50b56964a1ed",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "state_unchanged": null,
+      "readback": null
+    },
+    {
+      "id": "F2-wrong-refund-caller",
+      "actor": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+      "method": "request_refund",
+      "args": [
+        0
+      ],
+      "value": 0,
+      "return": "BUYER_ONLY",
+      "expected": "BUYER_ONLY",
+      "tx_hash": "0x5e97edeb442a77f74c30be5af5f8573db0e3e2e8d898cb1906a6fa03d7d669dc",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x5e97edeb442a77f74c30be5af5f8573db0e3e2e8d898cb1906a6fa03d7d669dc",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "state_unchanged": true,
+      "readback": {
+        "buyer": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+        "cited_clause_ids": [],
+        "held": 1,
+        "merchant": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+        "order_id": 0,
+        "order_ref": "PVS-V2-LIVE-001",
+        "outcome": "PENDING",
+        "paid_buyer": 0,
+        "paid_merchant": 0,
+        "policy_authority": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+        "policy_digest": "6b9bc78741878d5d3cecf9c81114d9dce95678f142ed21bd1c1cd4f4545fcae4",
+        "policy_id": 0,
+        "policy_url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v2.txt",
+        "policy_version": "REFUND-V2",
+        "product_code": "DIGITAL-SERVICE",
+        "purchase_time": "2026-10-03T07:40:03.725784Z",
+        "reason_codes": [],
+        "refund_amount": 1,
+        "request_time": "",
+        "state": "FUNDED",
+        "usage_units": 0
+      }
+    },
+    {
+      "id": "H3-buyer-request",
+      "actor": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+      "method": "request_refund",
+      "args": [
+        0
+      ],
+      "value": 0,
+      "return": "REFUND_REQUESTED",
+      "expected": "REFUND_REQUESTED",
+      "tx_hash": "0x51188b632ac73e91a632ea51bfc3f6549ce4a817ba0d33a56a25032f8b92ef9e",
+      "explorer": "https://explorer-studio.genlayer.com/tx/0x51188b632ac73e91a632ea51bfc3f6549ce4a817ba0d33a56a25032f8b92ef9e",
+      "status": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "state_unchanged": null,
+      "readback": {
+        "buyer": "0xA63DE24e30C88FB1019E8956654730316e36eDBE",
+        "cited_clause_ids": [],
+        "held": 1,
+        "merchant": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+        "order_id": 0,
+        "order_ref": "PVS-V2-LIVE-001",
+        "outcome": "PENDING",
+        "paid_buyer": 0,
+        "paid_merchant": 0,
+        "policy_authority": "0x736A168247e3f0C52F7907c9a8fDac572DF9c8bB",
+        "policy_digest": "6b9bc78741878d5d3cecf9c81114d9dce95678f142ed21bd1c1cd4f4545fcae4",
+        "policy_id": 0,
+        "policy_url": "https://raw.githubusercontent.com/dearmore5382/PolicyVersionSentinel/main/samples/refund-policy-v2.txt",
+        "policy_version": "REFUND-V2",
+        "product_code": "DIGITAL-SERVICE",
+        "purchase_time": "2026-10-03T07:40:03.725784Z",
+        "reason_codes": [],
+        "refund_amount": 1,
+        "request_time": "2026-10-03T07:41:35.598815Z",
+        "state": "REFUND_REQUESTED",
+        "usage_units": 0
+      }
+    }
+  ],
+  "complete": false
+}

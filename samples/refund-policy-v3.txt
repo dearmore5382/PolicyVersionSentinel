@@ -1,0 +1,8 @@
+POLICY_START
+POLICY_VERSION=REFUND-V3
+POLICY_AUTHORITY=0x736a168247e3f0c52f7907c9a8fdac572df9c8bb
+CLAUSE_ID=COVERED-DIGITAL-TOOLS
+Developer productivity software subscriptions, including source-code analysis and automated review tools, are covered products.
+CLAUSE_ID=EXCLUDED-CONSULTING
+Custom consulting, staff augmentation, and training services are excluded products.
+POLICY_END

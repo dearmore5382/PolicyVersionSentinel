@@ -1,22 +1,44 @@
 {
-  "contract_version": 2,
-  "live_policy_source": {
-    "path": "samples/refund-policy-v2.txt",
-    "classification": "PUBLIC_POLICY_TEMPLATE_NOT_LIVE_EVIDENCE",
-    "authority": "Replace POLICY_AUTHORITY with the lowercase signer wallet before publishing and hashing",
-    "purpose": "Example source format for a wallet-authorized policy snapshot"
-  },
-  "local_fixtures": {
-    "path": "tests/test_contract_direct.py",
-    "classification": "SYNTHETIC_LOCAL_MOCKS",
-    "purpose": "Deterministic contract control-flow and adversarial tests only; not on-chain evidence"
-  },
-  "historical_live_evidence": {
-    "path": "verification/E2E_EVIDENCE.md",
-    "contract_version": 1,
-    "contract_address": "0x97E92D2784d26ac14dCFE6215F7Ede582DA1608F",
-    "classification": "HISTORICAL_LIVE_V1_ONLY"
-  },
-  "v2_e2e_status": "PENDING_FRESH_DEPLOYMENT",
-  "prohibition": "Never describe local mocks, templates, screenshots, or v1 transactions as v2 live on-chain evidence."
+  "schema": "policy-version-sentinel-resource-manifest-v3",
+  "contract_version": 3,
+  "claim_being_proved": "A merchant-funded order satisfies that merchant wallet's exact committed refund terms",
+  "positive_state_beneficiary": "buyer wallet recorded by merchant",
+  "can_beneficiary_manufacture_fact_alone": false,
+  "publisher_controller": "merchant policy-authority wallet",
+  "runtime_authority_if_claimed": "finalized StudioNet contract state and native child transfer",
+  "what_this_source_cannot_prove": ["legal merchant identity", "domain ownership", "delivery", "consumer harm", "general policy validity"],
+  "resources": [
+    {
+      "resource_id": "synthetic-policy-v3-positive",
+      "purpose": "positive",
+      "authoritative_owner": "merchant wallet for its own offered terms only",
+      "canonical_origin": "public HTTPS URL chosen and digest-bound by merchant",
+      "repository_and_object_id": "dearmore5382/PolicyVersionSentinel:samples/refund-policy-v3.txt",
+      "revision_or_commit": "replace with exact submission commit before live test",
+      "expected_content_type": "text/plain UTF-8",
+      "expected_digest_algorithm": "SHA-256 over POLICY_START..POLICY_END inclusive",
+      "expected_digest": "compute after final authority address and commit are frozen",
+      "expected_deterministic_facts": ["version REFUND-V3", "authority equals policy signer", "digest matches fetched bytes"],
+      "expected_contract_result": "COVERED + zero usage + timely request derives ELIGIBLE",
+      "mutable_or_immutable": "must use immutable commit URL for live proof",
+      "github_authority_scope": "transport and exact bytes only"
+    },
+    {
+      "resource_id": "digest-substitution-control",
+      "purpose": "negative",
+      "expected_contract_result": "INTEGRITY_FAILURE, UNKNOWN, escrow held"
+    },
+    {
+      "resource_id": "unavailable-source-control",
+      "purpose": "unavailable",
+      "expected_contract_result": "UNAVAILABLE, UNKNOWN, escrow held"
+    },
+    {
+      "resource_id": "unsupported-clause-control",
+      "purpose": "negative",
+      "expected_contract_result": "UNKNOWN, no settlement"
+    }
+  ],
+  "local_fixtures": "Synthetic mocked web/LLM responses; direct behavior tests only, never live evidence",
+  "v3_e2e_status": "PENDING_FRESH_DEPLOYMENT"
 }
